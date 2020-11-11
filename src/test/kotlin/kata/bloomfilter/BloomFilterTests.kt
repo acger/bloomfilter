@@ -25,7 +25,7 @@ class BloomFilterTests {
         val hashAlgorithm = mockk<HashAlgorithm>()
         every { hashAlgorithm.hash("abc") } returns 2
 
-        val bloomFilter = BloomFilter(hashAlgorithm)
+        val bloomFilter = BloomFilter(1024, hashAlgorithm)
         bloomFilter.add("abc")
 
         assertTrue(bloomFilter.isProbablyKnown("abc"))
@@ -37,7 +37,7 @@ class BloomFilterTests {
         every { hashAlgorithm.hash("abc") } returns 2
         every { hashAlgorithm.hash("cba") } returns 1
 
-        val bloomFilter = BloomFilter(hashAlgorithm)
+        val bloomFilter = BloomFilter(1024, hashAlgorithm)
         bloomFilter.add("abc")
 
         assertFalse(bloomFilter.isProbablyKnown("cba"))
