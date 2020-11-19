@@ -1,7 +1,7 @@
-package kata.bloomfilter
+package de.acger.bloomfilter
 
-import kata.hashfunctions.HashAlgorithm
-import kata.hashfunctions.Murmur3Hash
+import de.acger.bloomfilter.hashfunctions.HashAlgorithm
+import de.acger.bloomfilter.hashfunctions.Murmur3Hash
 import java.util.*
 
 class BloomFilter(private val bitfieldSize: Int, private vararg val hashAlgorithm: HashAlgorithm) {

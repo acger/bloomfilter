@@ -1,7 +1,7 @@
-package kata.bloomfilter.experiments
+package de.acger.bloomfilter.experiments
 
-import kata.bloomfilter.BloomFilter
-import kata.hashfunctions.Murmur3Hash
+import de.acger.bloomfilter.BloomFilter
+import de.acger.bloomfilter.hashfunctions.Murmur3Hash
 import org.junit.jupiter.api.Test
 
 class BloomFilterCapacityExperiments {

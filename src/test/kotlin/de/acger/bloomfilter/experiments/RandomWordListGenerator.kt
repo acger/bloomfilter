@@ -1,4 +1,4 @@
-package kata.bloomfilter.experiments
+package de.acger.bloomfilter.experiments
 
 import kotlin.random.Random
 

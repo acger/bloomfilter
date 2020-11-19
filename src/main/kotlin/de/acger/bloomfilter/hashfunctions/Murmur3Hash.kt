@@ -1,4 +1,4 @@
-package kata.hashfunctions
+package de.acger.bloomfilter.hashfunctions
 
 import com.google.common.hash.Hashing
 import kotlin.math.absoluteValue

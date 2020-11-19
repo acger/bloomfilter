@@ -1,8 +1,8 @@
-package kata.bloomfilter
+package de.acger.bloomfilter
 
 import io.mockk.every
 import io.mockk.mockk
-import kata.hashfunctions.HashAlgorithm
+import de.acger.bloomfilter.hashfunctions.HashAlgorithm
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
