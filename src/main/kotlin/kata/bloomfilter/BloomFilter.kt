@@ -1,19 +1,24 @@
 package kata.bloomfilter
 
+import kata.hashfunctions.HashAlgorithm
+import kata.hashfunctions.Murmur3Hash
 import java.util.*
 
-class BloomFilter(bitfieldSize: Int, private val hashAlgorithm: HashAlgorithm) {
-    constructor() : this(1024, SimpleHashAlgorithm())
+class BloomFilter(private val bitfieldSize: Int, private vararg val hashAlgorithm: HashAlgorithm) {
+    constructor() : this(1024, Murmur3Hash(1))
 
     private val bitField = BitSet(bitfieldSize)
 
     fun add(word: String) {
         word.ifEmpty { throw IllegalArgumentException() }
-        bitField.set(hashAlgorithm.hash(word) % bitField.size())
+        hashAlgorithm.forEach { bitField.set(it.hash(word) % bitfieldSize) }
+    }
+
+    fun add(wordList: Set<String>) {
+        wordList.forEach { add(it) }
     }
 
     fun isProbablyKnown(word: String): Boolean {
-        return bitField.get(hashAlgorithm.hash(word) % bitField.size())
+        return hashAlgorithm.all { bitField.get(it.hash(word) % bitfieldSize) }
     }
-
 }

@@ -2,6 +2,7 @@ package kata.bloomfilter
 
 import io.mockk.every
 import io.mockk.mockk
+import kata.hashfunctions.HashAlgorithm
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -21,7 +22,7 @@ class BloomFilterTests {
     }
 
     @Test
-    fun `filter recognized known word`() {
+    fun `filter recognizes known word`() {
         val hashAlgorithm = mockk<HashAlgorithm>()
         every { hashAlgorithm.hash("abc") } returns 2
 

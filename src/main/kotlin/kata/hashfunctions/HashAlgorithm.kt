@@ -1,4 +1,4 @@
-package kata.bloomfilter
+package kata.hashfunctions
 
 interface HashAlgorithm {
     fun hash(word: String) : Int
